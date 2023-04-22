@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <script>
+        //TO DO: MAKE IT PRETTY!!!
+        //TO DO: ADD SUBMIT BUTTON --> ENTER SECOND FACTOR
+        //TO DO: Add Firebase Auth SDK functions
+    </script>
+    Login Page
+    <form id="loginform">
+    <label>Email<input label="Email" type="text" name="loginEmail" id= "loginEmailID"></label><br><br>
+    <label>Password <input label="Password" type="password" name="loginPassword" id="loginPasswordID"></label><br><br>
+    <label for="toggle"><input label="TogglePasswordVisibility" type = "checkbox" id= "toggle"/>Show Passwords</label>
+    <script>
+        document.querySelector('#toggle').addEventListener("click", togglePass);
+        function togglePass(){
+            var pswEle = document.getElementById("registerPasswordID");
+            if(pswEle.type === "password"){
+                pswEle.type = "text";
+            }
+            else{
+                pswEle.type = "password";
+            }
+        }
+    </script>
+</form>
+</body>
