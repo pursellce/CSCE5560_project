@@ -11,8 +11,9 @@
     Register Page
     <form id="registerform">
     <label>Email<input label="Email" type="text" name="registerEmail" id= "registerEmailID"></label><br><br>
+    <label>Phone Number <input label = "phonenumber" type = "text" id = "phonenumber"/></label><br><br>
     <label>Password <input label="Password" type="password" name="registerPassword" id="registerPasswordID"></label><br><br>
-    <label>Confirm Password <input label ="Confirm Password" type="password" name="registerPasswordRepeat" id="registerPasswordRepeatID" ></label><br>
+    <label>Confirm Password <input label ="Confirm Password" type="password" name="registerPasswordRepeat" id="registerPasswordRepeatID" ></label><br><br>
     <label for="toggle"><input label="TogglePasswordVisibility" type = "checkbox" id= "toggle"/>Show Passwords</label>
     <script>
         document.querySelector('#toggle').addEventListener("click", togglePass);
@@ -28,7 +29,6 @@
                 psw_repeatEle.type = "password";
             }
         }
-    <label>Phone Number <input label = "phonenumber" type = "text" id = "phonenumber"/></label>
     </script>
 </form>
 </body>
