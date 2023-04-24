@@ -56,7 +56,7 @@
 <form name = "registerForm" id= "registFormID" on submit="registerUser();">
 <h2>Sign Up</h2>
   <label for="registerEmailID">Email</label>
-  <input type="text"  name="registerEmail" id="registerEmailID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required><br><br>
+  <input type="text"  name="registerEmail" id="registerEmailID" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required><br><br>
   
   <label for="registerPhoneID">Phone</label>
   <input type="text" name="registerPhone" id="registerPhoneID" pattern ="^((\+|\+\(\d\d\)|)\d+)$" required><br><br>
