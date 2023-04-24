@@ -15,12 +15,45 @@
       background-color: #333;
       color: #fff;
     }
-    input[type="text"], input[type="email"], input[type="tel"], input[type="password"] select {
+    input[type=text], input[type=password] select {
       width: 20%;
       padding: 0.5em;
       margin-bottom: 1em;
       border: 1px solid #ccc;
       border-radius: 4px;
+    }
+    .container{
+      background-color: white;
+      padding: 0;
+    }
+    #message {
+      display: none;
+      background: #ccc;
+      color: #000;
+      position: relative;
+      padding: 1px;
+      margin-top: 0.5em;
+    }
+    #message p {
+      font-family: Arial, sans-serif;
+      padding: 0.5em;
+      font-size: 1em;
+    }
+    .valid{
+      color: #20d669;
+    }
+    .valid:before {
+      position: relative;
+      left: -0.5em;
+      content:"&#10004;"
+    }
+    .invalid{
+      color: #ba1209;
+    }
+    .invalid:before{
+      position: relative;
+      left: -0.5em;
+      content:"&#10006;"
     }
     label {
       display: block;
@@ -41,6 +74,7 @@
     .float-right {
       float: right;
     }
+    
   </style>
 </head>
 <body>
@@ -53,6 +87,7 @@
 
   </header>
 <!--Register Form-->
+<div class="container">
 <form name = "registerForm" id= "registFormID" on submit="registerUser();">
 <h2>Sign Up</h2>
   <label for="registerEmailID">Email</label>
@@ -69,13 +104,13 @@
   <label for="TogglePasswordVisibility">Show Passwords</label><input type="checkbox" id="TogglePasswordVisibility"/>
   <hr>
   <!-- Password Must Contain the Following box -->
-  <div class="container">
+  <div id="message">
   <h4>Password must contain the following:</h4>
   <p id="letter" class="invalid">A lowercase letter</p>
-  <p id="capital" class="invalid">A uppercase letter</p>
+  <p id="capital" class="invalid">An uppercase letter</p>
   <p id="number" class="invalid">A number</p>
   <p id="symbol" class="invalid">A special character ( !@#$%^&*_=+- )</p>
-  <p id="length" class="invalid">Minimum of 8 characters</p>
+  <p id="length" class="invalid">A minimum of 8 characters</p>
   </div>
   <br/>
   <input class="btn" type="submit" value="Submit" />
