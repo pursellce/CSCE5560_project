@@ -207,7 +207,7 @@
   }
     //Validate Passwords Matching
     confirmPass.onkeyup = function(){
-      if(confirmPass === myInput){
+      if(confirmPass.value.match(myInput)){
         passRepeat.classList.remove("invalid");
         passRepeat.classList.add("valid");
       }
@@ -220,6 +220,7 @@
 <!--WIP: Create User with Email and Password-->
 <script>
   function registerUser(){
+    const auth = getAuth();
     var email = document.getElementById("registerEmailID");
     var password = document.getElementById("registerPasswordID");
     createUserWithEmailAndPassword(auth, email, password)
@@ -232,7 +233,9 @@
     })
   .catch((error) => {
     const errorCode = error.code;
+    console.log(errorCode);
     const errorMessage = error.message;
+    console.log(errorMessage);
   });
 }
 </script>
