@@ -76,6 +76,7 @@
     }
     
   </style>
+  <script type = "text/javascript" src="scripts.js"></script>
 </head>
 <body>
   <header>
@@ -217,28 +218,7 @@
       }
     }
 </script>
-<!--WIP: Create User with Email and Password-->
-<script>
-  registerUser = function() {
-    const auth = getAuth();
-    var email = document.getElementById("registerEmailID");
-    var password = document.getElementById("registerPasswordID");
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // After account created, user is automatically signed in an sent back to home page
-      const user = userCredential.user;
-      alert("user created!!");
-      console.log("User created!");
-      location.href = 'index.html';
-    })
-  .catch((error) => {
-    const errorCode = error.code;
-    console.log(errorCode);
-    const errorMessage = error.message;
-    console.log(errorMessage);
-  });
-}
-</script>
+
 
 
 
