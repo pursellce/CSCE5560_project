@@ -116,6 +116,7 @@
       <p id="number" class="invalid">A number</p>
       <p id="symbol" class="invalid">A special character ( !@#$%^&*_=+- )</p>
       <p id="length" class="invalid">A minimum of 8 characters</p>
+      <p id="passMatch" class="invalid">Both passwords entered match</p>
     </div>
 
     <hr style="border: 1px solid #d1d1d1">
@@ -149,12 +150,14 @@
 <!-- Password Contains X auto update -->
 <script>
   var myInput = document.getElementById("registerPasswordID");
+  var confirmPass = document.getElementById("confirmPasswordID");
   var letter = document.getElementById("letter");
   var capital = document.getElementById("capital");
   var number = document.getElementById("number");
   var length = document.getElementById("length");
   var symbol = document.getElementById("symbol");
-
+  var passRepeat = document.getElementById("passRepeat");
+  
 
   myInput.onkeyup = function () {
     // Validate lowercase letters
@@ -175,7 +178,6 @@
       capital.classList.remove("valid");
       capital.classList.add("invalid");
     }
-
     // Validate numbers
     var numbers = /[0-9]/g;
     if (myInput.value.match(numbers)) {
@@ -202,7 +204,18 @@
       symbol.classList.remove("valid");
       symbol.classList.add("invalid");
     }
-}
+  }
+    //Validate Passwords Matching
+    confirmPass.onkeyup = function(){
+      if(confirmPass === myInput){
+        passRepeat.classList.remove("invalid");
+        passRepeat.classList.add("valid");
+      }
+      else{
+        passRepeat.classList.remove("valid");
+        passRepeat.classList.add("invalid");
+      }
+    }
 </script>
 <!--WIP: Create User with Email and Password-->
 <script>
@@ -213,7 +226,9 @@
     .then((userCredential) => {
       // After account created, user is automatically signed in an sent back to home page
       const user = userCredential.user;
-      window.location.href= 'index.html';
+      alert("user created!!");
+      console.log("User created!");
+      location.href = 'index.html';
     })
   .catch((error) => {
     const errorCode = error.code;
