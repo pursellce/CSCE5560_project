@@ -88,7 +88,7 @@
   </header>
 <!--Register Form-->
 <div class="container">
-<form name = "registerForm" id= "registFormID" onsubmit= "registerUser()">
+<form name = "registerForm" id= "registFormID" onsubmit= "return false;">
   <div style="text-align: center">
   <h2>Sign Up</h2>
   <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
@@ -122,7 +122,7 @@
     <hr style="border: 1px solid #d1d1d1">
 
     <div style="text-align: center; padding: 10px">
-      <input class="btn" type="submit" value="Submit" />
+      <input class="btn" type="submit" value="Submit" onclick = "registerUser()"/>
     </div>
     </div>
   </div>
@@ -219,7 +219,7 @@
 </script>
 <!--WIP: Create User with Email and Password-->
 <script>
-  function registerUser(){
+  registerUser = function() {
     const auth = getAuth();
     var email = document.getElementById("registerEmailID");
     var password = document.getElementById("registerPasswordID");
