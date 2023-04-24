@@ -15,7 +15,14 @@
       background-color: #333;
       color: #fff;
     }
-    input[type=text], input[type=password] select {
+    input[type=text] select {
+      width: 20%;
+      padding: 0.5em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type=password] select {
       width: 20%;
       padding: 0.5em;
       margin-bottom: 1em;
@@ -45,7 +52,7 @@
     .valid:before {
       position: relative;
       left: -0.5em;
-      content:"&#10004;"
+      content:"✔";
     }
     .invalid{
       color: #ba1209;
@@ -53,7 +60,7 @@
     .invalid:before{
       position: relative;
       left: -0.5em;
-      content:"&#10006;"
+      content:"✖";
     }
     label {
       display: block;
