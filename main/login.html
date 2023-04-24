@@ -16,18 +16,21 @@
       background-color: #333;
       color: #fff;
     }
-    input[type="text"], input[type="email"], input[type="tel"], select {
-      width: 20%;
+
+    input[type=text], input[type=password]{
+      width: 400px;
       padding: 0.5em;
       margin-bottom: 1em;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+    
     label {
       display: block;
       font-weight: bold;
       margin-bottom: 0.5em;
     }
+
     .btn {
       display: inline-block;
       padding: 0.5em 1em;
@@ -43,28 +46,36 @@
       float: right;
     }
   </style>
+
 </head>
 <body>
   <header>
     <div class="container">
-      <a href="#" class="btn float-right">Login</a>
-      <a href="#" class="btn float-right">Sign Up</a>
+      <a href="Login.html" class="btn float-right">Login</a>
+      <a href="SignUp.html" class="btn float-right">Sign Up</a>
     </div>
       <h1>Clothing</h1>
 
   </header>
 <form>
-<h2>Login</h2>
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" required><br><br>
- 
+  <div style="text-align: center">
+  <h2>Login</h2>
+  <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" required><br><br>
+  
 
-  <label for="password">Password</label>
-  <input type="password" id="password" name="password" required><br><br>
-
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <hr style="border: 1px solid #d1d1d1">
+    <div style="text-align: center; padding: 10px">
+      <input class="btn" type="submit" value="Submit" />
+    </div>
+  </div>
+</div>
  
   
-  <input type="submit" value="Submit">
+  
 </form>
 
 

@@ -19,20 +19,14 @@
       background-color: white;
       padding: 0;
     }
-    #input[type=text] select {
-      width: 20%;
+    input[type=text], input[type=password]{
+      width: 400px;
       padding: 0.5em;
       margin-bottom: 1em;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    #input[type=password] select {
-      width: 20%;
-      padding: 0.5em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+
     #message {
       background: #ccc;
       color: #000;
@@ -86,8 +80,8 @@
 <body>
   <header>
     <div class="container">
-      <a href="#" class="btn float-right">Login</a>
-      <a href="#" class="btn float-right">Sign Up</a>
+      <a href="Login.html" class="btn float-right">Login</a>
+      <a href="SignUp.html" class="btn float-right">Sign Up</a>
     </div>
       <h1>Clothing</h1>
 
@@ -95,35 +89,43 @@
 <!--Register Form-->
 <div class="container">
 <form name = "registerForm" id= "registFormID" on submit="registerUser();">
-<h2>Sign Up</h2>
-  <label for="registerEmailID">Email</label>
-  <input type="text"  name="registerEmail" id="registerEmailID" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required><br><br>
-  
-  <label for="registerPhoneID">Phone</label>
-  <input type="text" name="registerPhone" id="registerPhoneID" pattern ="^((\+|\+\(\d\d\)|)\d+)$" required><br><br>
+  <div style="text-align: center">
+  <h2>Sign Up</h2>
+  <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+    <label for="registerEmailID">Email</label>
+    <input type="text"  name="registerEmail" id="registerEmailID" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required><br><br>
+    
+    <label for="registerPhoneID">Phone</label>
+    <input type="text" name="registerPhone" id="registerPhoneID" pattern ="^((\+|\+\(\d\d\)|)\d+)$" required><br><br>
 
-  <label for="registerPasswordID">Password</label>
-  <input type="password" name="registerPassword" id="registerPasswordID" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" required><br><br>
+    <label for="registerPasswordID">Password</label>
+    <input type="password" name="registerPassword" id="registerPasswordID" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" required><br><br>
 
-  <label for="confirmPasswordID">Confirm Password</label>
-  <input type="password" name="confirmPassword" id="confirmPasswordID" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" required><br><br>
-  <label for="TogglePasswordVisibility">Show Passwords</label><input type="checkbox" id="TogglePasswordVisibility"/>
-  <hr>
+    <label for="confirmPasswordID">Confirm Password</label>
+    <input type="password" name="confirmPassword" id="confirmPasswordID" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" required><br><br>
+
+    <label for="TogglePasswordVisibility">Show Passwords: <input type="checkbox" id="TogglePasswordVisibility"/></label>
+    
+    <hr style="border: 1px solid #d1d1d1">
+
   <!-- Password Must Contain the Following box -->
-  <div id="message">
-  <h4>Password must contain the following:</h4>
-  <p id="letter" class="invalid">A lowercase letter</p>
-  <p id="capital" class="invalid">An uppercase letter</p>
-  <p id="number" class="invalid">A number</p>
-  <p id="symbol" class="invalid">A special character ( !@#$%^&*_=+- )</p>
-  <p id="length" class="invalid">A minimum of 8 characters</p>
+    <div>
+      <h4>Password must contain the following:</h4>
+      <p id="letter" class="invalid">A lowercase letter</p>
+      <p id="capital" class="invalid">An uppercase letter</p>
+      <p id="number" class="invalid">A number</p>
+      <p id="symbol" class="invalid">A special character ( !@#$%^&*_=+- )</p>
+      <p id="length" class="invalid">A minimum of 8 characters</p>
+    </div>
+
+    <hr style="border: 1px solid #d1d1d1">
+
+    <div style="text-align: center; padding: 10px">
+      <input class="btn" type="submit" value="Submit" />
+    </div>
+    </div>
   </div>
-  <br/>
-  <input class="btn" type="submit" value="Submit" />
-  <br/>
-  <br/>
-  </div>
-  </div>
+</div>
 </form>
 
 <!--Toggle Password Visibility Script-->
