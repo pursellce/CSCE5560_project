@@ -19,30 +19,3 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-
-//register user function
-function registerUser (){
-  var email = document.getElementById("registerEmailID");
-  var password = document.getElementById("registerPasswordID");
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-  // After account created, user is automatically signed in an sent back to home page
-    const user = userCredential.user;
-    alert("user created!!");
-    console.log("User created!");
-    if(userCredential.user){
-      location.href = 'index.html';
-    }
-    else{
-      alert("Something went wrong...");
-    }
-  })
-.catch((error) => {
-  const errorCode = error.code;
-  console.log(errorCode);
-  const errorMessage = error.message;
-  console.log(errorMessage);
-});
-}
-
-  
