@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <title>Sign Up</title>
   <style>
     body {
@@ -78,6 +79,7 @@
   </style>
 </head>
 <body>
+  
   <header>
     <div class="container">
       <a href="login.html" class="btn float-right">Login</a>
@@ -88,162 +90,48 @@
   </header>
 <!--Register Form-->
 <div class="container">
-<form name = "registerForm" id= "registFormID" onsubmit= "return false;">
-  <div style="text-align: center">
-  <h2>Sign Up</h2>
-  <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
-    <label for="registerEmailID">Email</label>
-    <input type="text"  name="registerEmail" id="registerEmailID" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required><br><br>
-    
-    <label for="registerPhoneID">Phone</label>
-    <input type="text" name="registerPhone" id="registerPhoneID" pattern ="^((\+|\+\(\d\d\)|)\d+)$" required><br><br>
+  <form name = "registerForm" id= "registFormID" onsubmit= "return false;">
+    <div style="text-align: center">
+    <h2>Sign Up</h2>
+    <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+      <label for="registerEmailID">Email</label>
+      <input type="text"  name="registerEmail" id="registerEmailID" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required><br><br>
+      
+      <label for="registerPhoneID">Phone</label>
+      <input type="text" name="registerPhone" id="registerPhoneID" pattern ="^((\+|\+\(\d\d\)|)\d+)$" required><br><br>
 
-    <label for="registerPasswordID">Password</label>
-    <input type="password" name="registerPassword" id="registerPasswordID" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" required><br><br>
+      <label for="registerPasswordID">Password</label>
+      <input type="password" name="registerPassword" id="registerPasswordID" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" required><br><br>
 
-    <label for="confirmPasswordID">Confirm Password</label>
-    <input type="password" name="confirmPassword" id="confirmPasswordID" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" required><br><br>
+      <label for="confirmPasswordID">Confirm Password</label>
+      <input type="password" name="confirmPassword" id="confirmPasswordID" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" required><br><br>
 
-    <label for="TogglePasswordVisibility">Show Passwords: <input type="checkbox" id="TogglePasswordVisibility"/></label>
-    
-    <hr style="border: 1px solid #d1d1d1">
+      <label for="TogglePasswordVisibility">Show Passwords: <input type="checkbox" id="TogglePasswordVisibility"/></label>
+      
+      <hr style="border: 1px solid #d1d1d1">
 
-  <!-- Password Must Contain the Following box -->
-    <div>
-      <h4>Password must contain the following:</h4>
-      <p id="letter" class="invalid">A lowercase letter</p>
-      <p id="capital" class="invalid">An uppercase letter</p>
-      <p id="number" class="invalid">A number</p>
-      <p id="symbol" class="invalid">A special character ( !@#$%^&*_=+- )</p>
-      <p id="length" class="invalid">A minimum of 8 characters</p>
-      <p id="passRepeat" class="invalid">Entered passwords match</p>
+    <!-- Password Must Contain the Following box -->
+      <div>
+        <h4>Password must contain the following:</h4>
+        <p id="letter" class="invalid">A lowercase letter</p>
+        <p id="capital" class="invalid">An uppercase letter</p>
+        <p id="number" class="invalid">A number</p>
+        <p id="symbol" class="invalid">A special character ( !@#$%^&*_=+- )</p>
+        <p id="length" class="invalid">A minimum of 8 characters</p>
+        <p id="passRepeat" class="invalid">Entered passwords match</p>
+      </div>
+
+      <hr style="border: 1px solid #d1d1d1">
+
+      <div style="text-align: center; padding: 10px">
+        <input class="btn" type="submit" value="Submit" onclick = "registerUser()"/>
+      </div>
+      </div>
     </div>
-
-    <hr style="border: 1px solid #d1d1d1">
-
-    <div style="text-align: center; padding: 10px">
-      <input class="btn" type="submit" value="Submit" onclick = "registerUser()"/>
-    </div>
-    </div>
-  </div>
+  </form>
 </div>
-</form>
-<!--Toggle Password Visibility Script-->
-<script>
-  document.querySelector('#TogglePasswordVisibility').addEventListener("click", togglePass);
-    function togglePass() {
-      var pswEle = document.getElementById("registerPasswordID");
-      var psw_repeatEle = document.getElementById("confirmPasswordID");
-      if (pswEle.type === "password") {
-        pswEle.type = "text";
-      } else{
-        pswEle.type = "password";
-      }
-      if (psw_repeatEle.type === "password") {
-        psw_repeatEle.type = "text";
-      } else{
-       psw_repeatEle.type = "password";
-      }
-    }
-</script>
-<!-- Password Contains X auto update -->
-<script>
-  var myInput = document.getElementById("registerPasswordID");
-  var confirmPass = document.getElementById("confirmPasswordID");
-  var letter = document.getElementById("letter");
-  var capital = document.getElementById("capital");
-  var number = document.getElementById("number");
-  var length = document.getElementById("length");
-  var symbol = document.getElementById("symbol");
-  var passRepeat = document.getElementById("passRepeat");
-  
 
-  myInput.onkeyup = function () {
-    // Validate lowercase letters
-    var lowerCaseLetters = /[a-z]/g;
-    if (myInput.value.match(lowerCaseLetters)) {
-      letter.classList.remove("invalid");
-      letter.classList.add("valid");
-    } else {
-      letter.classList.remove("valid");
-      letter.classList.add("invalid");
-    }
-    // Validate capital letters
-    var upperCaseLetters = /[A-Z]/g;
-    if (myInput.value.match(upperCaseLetters)) {
-      capital.classList.remove("invalid");
-      capital.classList.add("valid");
-    } else {
-      capital.classList.remove("valid");
-      capital.classList.add("invalid");
-    }
-    // Validate numbers
-    var numbers = /[0-9]/g;
-    if (myInput.value.match(numbers)) {
-      number.classList.remove("invalid");
-      number.classList.add("valid");
-    } else {
-      number.classList.remove("valid");
-      number.classList.add("invalid");
-      }
-    // Validate length
-    if (myInput.value.length >= 8) {
-      length.classList.remove("invalid");
-      length.classList.add("valid");
-    } else {
-      length.classList.remove("valid");
-      length.classList.add("invalid");
-    }
-    //Validates Symbols
-    var symbols = /[!@#$%^&* _=+-]/g;
-    if (myInput.value.match(symbols)) {
-      symbol.classList.remove("invalid");
-      symbol.classList.add("valid");
-    } else {
-      symbol.classList.remove("valid");
-      symbol.classList.add("invalid");
-    }
-  }
-    //Validate Passwords Matching
-    confirmPass.onkeyup = function(){
-      if(confirmPass.value.match(myInput)){
-        passRepeat.classList.remove("invalid");
-        passRepeat.classList.add("valid");
-      }
-      else{
-        passRepeat.classList.remove("valid");
-        passRepeat.classList.add("invalid");
-      }
-    }
-</script>
-<!--Script to Import Firebase Stuff-->
-<script type="module" src="./index.js"></script>
-<!--Register User Function-->
-<script>
-function registerUser (){
-  var email = document.getElementById("registerEmailID");
-  var password = document.getElementById("registerPasswordID");
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-  // After account created, user is automatically signed in an sent back to home page
-    const user = userCredential.user;
-    alert("user created!!");
-    console.log("User created!");
-    if(userCredential.user){
-      location.href = 'index.html';
-    }
-    else{
-      alert("Something went wrong...");
-    }
-  })
-.catch((error) => {
-  const errorCode = error.code;
-  console.log(errorCode);
-  const errorMessage = error.message;
-  console.log(errorMessage);
-});
-}
-</script>
+<script type="text/javascript" src="./js/signup.js"></script>
 </body>
 
 
