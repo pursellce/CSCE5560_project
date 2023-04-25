@@ -11,6 +11,7 @@ app.post(path.join(__dirname,"/checkout-session"), async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: [
             {
+            //item price id 
             amount: 'price_1N0XkjEJsQttsu4FFmP5PYDi',
             quantity: 1,
             }
