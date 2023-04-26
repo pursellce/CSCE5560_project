@@ -93,7 +93,7 @@ import { auth, createUserWithEmailAndPassword } from './bundle.mjs'
   function registerUser (){
     var email = document.getElementById("registerEmailID");
     var password = document.getElementById("registerPasswordID");
-    createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     // After account created, user is automatically signed in an sent back to home page
       const user = userCredential.user;

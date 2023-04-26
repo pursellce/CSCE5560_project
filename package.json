@@ -5,6 +5,7 @@
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
+    "firebase-tools": "^11.29.0",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2"
   },
