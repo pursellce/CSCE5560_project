@@ -39,8 +39,3 @@ if (process.browser){
 
 //Authorization Object
 const auth = getAuth(app);
-
-//export variables and functions needed in other .js files
-export {
-  auth, createUserWithEmailAndPassword
-}
