@@ -93,7 +93,7 @@ import { auth, createUserWithEmailAndPassword } from './firebase.mjs'
   function registerUser (){
     var email = document.getElementById("registerEmailID");
     var password = document.getElementById("registerPasswordID");
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
     // After account created, user is automatically signed in an sent back to home page
       const user = userCredential.user;
