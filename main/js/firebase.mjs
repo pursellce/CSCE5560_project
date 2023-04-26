@@ -39,3 +39,28 @@ if (process.browser){
 
 //Authorization Object
 const auth = getAuth(app);
+
+//Register User Function
+var form = document.getElementById("registFormID");
+form.addEventListener("submit", registerUser)
+function registerUser (){
+  var email = document.getElementById("registerEmailID");
+  var password = document.getElementById("registerPasswordID");
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    alert("user created!!");
+    console.log("User created!");
+    if(userCredential.user){
+      location.href = 'index.html';
+    }
+    else{
+      alert("Something went wrong...");
+    }
+  })
+.catch((error) => {
+  const errorCode = error.code;
+  console.log(errorCode);
+  const errorMessage = error.message;
+  console.log(errorMessage);
+});
+}
