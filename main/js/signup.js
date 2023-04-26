@@ -1,19 +1,19 @@
 // Show password toggle
   document.querySelector('#TogglePasswordVisibility').addEventListener("click", togglePass);
-    function togglePass() {
-      var pswEle = document.getElementById("registerPasswordID");
-      var psw_repeatEle = document.getElementById("confirmPasswordID");
-      if (pswEle.type === "password") {
-        pswEle.type = "text";
-      } else{
-        pswEle.type = "password";
-      }
-      if (psw_repeatEle.type === "password") {
-        psw_repeatEle.type = "text";
-      } else{
-       psw_repeatEle.type = "password";
-      }
+  function togglePass() {
+    var pswEle = document.getElementById("registerPasswordID");
+    var psw_repeatEle = document.getElementById("confirmPasswordID");
+    if (pswEle.type === "password") {
+      pswEle.type = "text";
+    } else{
+      pswEle.type = "password";
     }
+    if (psw_repeatEle.type === "password") {
+      psw_repeatEle.type = "text";
+    } else{
+      psw_repeatEle.type = "password";
+    }
+  }
 
 //Password Contains X auto update
   var myInput = document.getElementById("registerPasswordID");
@@ -25,7 +25,7 @@
   var symbol = document.getElementById("symbol");
   var passRepeat = document.getElementById("passRepeat");
   
-
+//Validate Password Complexity Requirements
   myInput.onkeyup = function () {
     // Validate lowercase letters
     var lowerCaseLetters = /[a-z]/g;
@@ -73,17 +73,16 @@
     }
   }
   
-    //Validate Passwords Matching
-    confirmPass.onkeyup = function(){
-      if(confirmPass.value.match(myInput)){
-        passRepeat.classList.remove("invalid");
-        passRepeat.classList.add("valid");
-      }
-      else{
-        passRepeat.classList.remove("valid");
-        passRepeat.classList.add("invalid");
-      }
+//Validate Passwords Matching
+  confirmPass.onkeyup = function(){
+    if(confirmPass.value.match(myInput)){
+      passRepeat.classList.remove("invalid");
+      passRepeat.classList.add("valid");
+    } else{
+      passRepeat.classList.remove("valid");
+      passRepeat.classList.add("invalid");
     }
+  }
 
 //Script to Import Firebase Stuff
 //import './js/index.js';
