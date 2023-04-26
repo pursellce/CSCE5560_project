@@ -1,4 +1,4 @@
-// Import the functions needed from the SDKs
+// Import the functions needed from the browser SDKs
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js';
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js';
@@ -19,27 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-//SIGN UP FUNCTIONS
-function registerUser (){
-  var email = document.getElementById("registerEmailID");
-  var password = document.getElementById("registerPasswordID");
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-  // After account created, user is automatically signed in an sent back to home page
-    const user = userCredential.user;
-    alert("user created!!");
-    console.log("User created!");
-    if(userCredential.user){
-      location.href = 'index.html';
-    }
-    else{
-      alert("Something went wrong...");
-    }
-  })
-.catch((error) => {
-  const errorCode = error.code;
-  console.log(errorCode);
-  const errorMessage = error.message;
-  console.log(errorMessage);
-});
+//export variables and functions needed in other .js files
+export {
+  auth, createUserWithEmailAndPassword
 }

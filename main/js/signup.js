@@ -1,3 +1,5 @@
+import { auth, createUserWithEmailAndPassword } from './firebase.mjs'
+
 // Show password toggle
   document.querySelector('#TogglePasswordVisibility').addEventListener("click", togglePass);
   function togglePass() {
@@ -88,7 +90,6 @@
 
 
 //Register User Function
-/* MAY REMOVE
 function registerUser (){
   var email = document.getElementById("registerEmailID");
   var password = document.getElementById("registerPasswordID");
@@ -112,4 +113,3 @@ function registerUser (){
   console.log(errorMessage);
 });
 }
-*/
