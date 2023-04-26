@@ -1,0 +1,25 @@
+{
+  "name": "csce5560_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pursellce/CSCE5560_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pursellce/CSCE5560_project/issues"
+  },
+  "homepage": "https://github.com/pursellce/CSCE5560_project#readme"
+}

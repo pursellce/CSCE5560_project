@@ -1,4 +1,4 @@
-import { auth, createUserWithEmailAndPassword } from './firebase.mjs'
+import { auth, createUserWithEmailAndPassword } from './bundle.mjs'
 
 // Show password toggle
   document.querySelector('#TogglePasswordVisibility').addEventListener("click", togglePass);
