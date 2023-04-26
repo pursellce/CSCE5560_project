@@ -33,5 +33,5 @@ const auth = getAuth(app);
 
 //export variables and functions needed in other .js files
 export {
-  createUserWithEmailAndPassword
+  auth, createUserWithEmailAndPassword
 }
