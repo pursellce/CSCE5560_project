@@ -85,9 +85,10 @@
   }
 
 //Script to Import Firebase Stuff
-//import './js/index.js';
+
 
 //Register User Function
+/* MAY REMOVE
 function registerUser (){
   var email = document.getElementById("registerEmailID");
   var password = document.getElementById("registerPasswordID");
@@ -111,3 +112,4 @@ function registerUser (){
   console.log(errorMessage);
 });
 }
+*/
