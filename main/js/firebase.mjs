@@ -2,7 +2,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js';
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js';
-import {initializeAppCheck, ReCaptchaV3Provider} from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-app-check.js';
+import {initializeAppCheck, ReCaptchaEnterpriseProvider} from 'https://www.gstatic.com/firebasejs/9.20.0/firebase-app-check.js';
 
 //Configuration
 const firebaseConfig = {
@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
   // Pass your reCAPTCHA v3 site key (public key) to activate(). This
   // key is the counterpart to the secret key set in the Firebase console.
   const appCheck = initializeAppCheck(app, {
-    provider: new ReCaptchaV3Provider('6LfczrwlAAAAAAI_IuJi_Y2bSx_GvzikK8uXL6x3'),
+    provider: new ReCaptchaEnterpriseProvider('6LfczrwlAAAAAAI_IuJi_Y2bSx_GvzikK8uXL6x3'),
     // Optional argument. If true, the SDK automatically refreshes App Check
     // tokens as needed.
     isTokenAutoRefreshEnabled: true
