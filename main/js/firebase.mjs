@@ -20,7 +20,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 //reCAPTCHA stuff
-if(process.browser){
   // Pass your reCAPTCHA v3 site key (public key) to activate(). This
   // key is the counterpart to the secret key set in the Firebase console.
   const appCheck = initializeAppCheck(app, {
@@ -29,7 +28,7 @@ if(process.browser){
     // tokens as needed.
     isTokenAutoRefreshEnabled: true
   });
-}
+
 
 /*
 alternative if statement for testing
