@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.html",
   "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^3.4.1",
     "firebase": "^9.20.0"
   },
   "devDependencies": {
