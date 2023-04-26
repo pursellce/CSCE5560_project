@@ -5,7 +5,8 @@
   "main": "index.html",
   "dependencies": {
     "@google-cloud/recaptcha-enterprise": "^3.4.1",
-    "firebase": "^9.20.0"
+    "firebase": "^9.20.0",
+    "recaptcha-v3": "^1.10.0"
   },
   "devDependencies": {
     "firebase-tools": "^11.29.0",
