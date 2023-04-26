@@ -86,30 +86,30 @@ import { auth, createUserWithEmailAndPassword } from './firebase.mjs'
     }
   }
 
-//Script to Import Firebase Stuff
-
 
 //Register User Function
-function registerUser (){
-  var email = document.getElementById("registerEmailID");
-  var password = document.getElementById("registerPasswordID");
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-  // After account created, user is automatically signed in an sent back to home page
-    const user = userCredential.user;
-    alert("user created!!");
-    console.log("User created!");
-    if(userCredential.user){
-      location.href = 'index.html';
-    }
-    else{
-      alert("Something went wrong...");
-    }
-  })
-.catch((error) => {
-  const errorCode = error.code;
-  console.log(errorCode);
-  const errorMessage = error.message;
-  console.log(errorMessage);
-});
-}
+  var form = document.getElementById("registFormID");
+  form.addEventListener("submit", registerUser)
+  function registerUser (){
+    var email = document.getElementById("registerEmailID");
+    var password = document.getElementById("registerPasswordID");
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+    // After account created, user is automatically signed in an sent back to home page
+      const user = userCredential.user;
+      alert("user created!!");
+      console.log("User created!");
+      if(userCredential.user){
+        location.href = 'index.html';
+      }
+      else{
+        alert("Something went wrong...");
+      }
+    })
+  .catch((error) => {
+    const errorCode = error.code;
+    console.log(errorCode);
+    const errorMessage = error.message;
+    console.log(errorMessage);
+  });
+  }
