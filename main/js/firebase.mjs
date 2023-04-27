@@ -2,13 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import {initializeAppCheck, ReCaptchaV3Provider} from "firebase/app-check";
-//Recaptcha STUFF
-
-
-
-
-
+//import {initializeAppCheck, ReCaptchaV3Provider} from "firebase/app-check";
+ 
 //Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBrgPio0COrd8AiMDiBb7sWsUx_Xl7Eip0",
@@ -23,7 +18,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+/*
 //reCAPTCHA stuff
   // Pass your reCAPTCHA v3 site key (public key) to activate(). This
   // key is the counterpart to the secret key set in the Firebase console.
@@ -33,9 +28,6 @@ const app = initializeApp(firebaseConfig);
     // tokens as needed.
     isTokenAutoRefreshEnabled: true
   });
-
-
-/*
 alternative if statement for testing
 if (process.browser){
   const appCheckKey = "CDD5A472-7BA1-494D-86BB-2117BD651C96";
@@ -44,7 +36,6 @@ if (process.browser){
 
 //Authorization Object
 const auth = getAuth(app);
-
 //Register User Function
 var form = document.getElementById("registFormID");
 form.addEventListener("submit", registerUser)
@@ -68,4 +59,9 @@ function registerUser (){
   const errorMessage = error.message;
   console.log(errorMessage);
 });
+}
+export{ initializeApp, 
+        getAuth, createUserWithEmailAndPassword, 
+        //initializeAppCheck, ReCaptchaV3Provider,
+        registerUser
 }
