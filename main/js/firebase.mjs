@@ -46,9 +46,8 @@ if (process.browser){
 //Authorization Object
 const auth = getAuth();
 //Register User Function
-
+var registerForm = document.getElementById("registFormID");
 registerForm.addEventListener("submit", ()=> {
-  var registerForm = document.getElementById("registFormID");
   var email = document.getElementById("registerEmailID").value;
   var password = document.getElementById("registerPasswordID").value;  
   console.log(email);
