@@ -46,12 +46,13 @@ if (process.browser){
 //Authorization Object
 const auth = getAuth();
 //Register User Function
-var registerForm = document.getElementById("registFormID");
-var email = document.getElementById("registerEmailID").value;
-console.log(email);
-var password = document.getElementById("registerPasswordID").value;
-console.log(password);
-registerForm.addEventListener("submit", ()=>
+
+registerForm.addEventListener("submit", ()=> {
+  var registerForm = document.getElementById("registFormID");
+  var email = document.getElementById("registerEmailID").value;
+  var password = document.getElementById("registerPasswordID").value;  
+  console.log(email);
+  console.log(password);
   createUserWithEmailAndPassword(auth, email, password)
     .then(auth => console.log(auth))
     .catch((error) => {
@@ -60,4 +61,5 @@ registerForm.addEventListener("submit", ()=>
       const errorMessage = error.message;
       console.log(errorMessage);
     })
+  }
 )
