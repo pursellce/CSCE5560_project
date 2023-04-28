@@ -2,48 +2,8 @@
 <html lang="en">
 <head>
  
-  <title>Home</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    h1 {
-      font-size: 2em;
-      margin: 0;
-      padding: 1em;
-      background-color: #333;
-      color: #fff;
-    }
-    input[type="text"], input[type="email"], input[type="tel"], select {
-      width: 40%;
-      padding: 0.5em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.5em 1em;
-      background-color: #333;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .btn:hover {
-      background-color: #444;
-    }
-    .float-right {
-      float: right;
-    }
-  </style>
-</head>
+  <title>OTP</title>
+ </head>
 <body>
   <header>
     <div class="container">
@@ -51,376 +11,90 @@
       <a href="SignUp.html" class="btn float-right">Sign Up</a>
     </div>
       <h1>Clothing</h1>
-
-  </header>
-<div class="shopping-cart">
-  <div class="item">
-    <div style="text-align: center; padding: 10px">
+	<div class="shopping-cart">
+  	<div class="item">
+    	<div style="text-align: center; padding: 10px">
 
 	<h2><b>Women Tops</b></h2>
-<div style="border: 1px solid black; padding: 5px;      width: 30%;
-">
 
-    <img src="https://mauricesprodatg.scene7.com/is/image/mauricesProdATG/208509_C1943?$large$">
-      <h3>Women's Pleated Deepneck Top</h3>
-	<h2>Size</h2>
-	    <style>
-      .size-box {
-        display: inline-block;
-        padding: 5px;
-        border: 1px solid black;
-        margin-right: 10px;
-        cursor: pointer;
-      }
+  </header>
 
-      .size-box:hover {
-        background-color: gray;
-      }
-
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 5vh;
-      }
-    </style>
-  
+<div style="display:flex;flex-direction:row;width:100%;">
+  <div style="border:3px solid #ccc;padding:10px;width:33%;">
+    <img src="https://mauricesprodatg.scene7.com/is/image/mauricesProdATG/208509_C1943?$large$" alt="Dress 1">
     <div class="center">
-      <div class="size-box">S</div>
-      <div class="size-box">M</div>
-      <div class="size-box">L</div>
-      <div class="size-box">XL</div>
-      <div class="size-box">XXL</div>
+	      <h3>Women's Pleated Deepneck Top</h3>
+
+      <label for="size1">Size:</label>
+      <select id="size1">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+      </select>
     </div>
- 
-	
-	<h4>Quantity</h4>
-
-	<style>
-	.counter {
-		display: inline-block;
-		border: 1px solid #ccc;
-		padding: 5px;
-		font-size: 16px;
-	}
-	button {
-		padding: 5px;
-		font-size: 16px;
-		cursor: pointer;
-	}
-	</style>
-	<div class="counter">
-		<button id="minus">-</button>
-		<span id="count">0</span>
-		<button id="plus">+</button>
-	</div>
-
-	<script>
-	// JavaScript code to add interactivity to the counter
-	//const countEl = document.getElementById("count");
-	//const minusBtn = document.getElementById("minus");
-	//const plusBtn = document.getElementById("plus");
-	//let count = 0;
-
-	minusBtn.addEventListener("click", () => {
-		if (count > 0) {
-			count--;
-			countEl.textContent = count;
-		}
-	});
-
-	plusBtn.addEventListener("click", () => {
-		count++;
-		countEl.textContent = count;
-	});
-	</script>
-
-      <p>Amount: $20</p>
-      <div style="text-align: center; padding: 5px">
+    <div class="center">
+      <label for="quantity1">Quantity:</label>
+      <select id="quantity1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+    <div class="center">
+     <p>Amount: $20</p>
       <input class="btn" type="submit" value="Buy" />
     </div>
   </div>
-  
-</div>
-   
-</div>
-
-
-<style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    h1 {
-	      font-size: 2em;
-
-      margin: 0;
-      padding: 1em;
-      background-color: #333;
-      color: #fff;
-    }
-    input[type="text"], input[type="email"], input[type="tel"], select {
-      width: 40%;
-      padding: 0.5em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.5em 1em;
-      background-color: #333;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .btn:hover {
-      background-color: #444;
-    }
-    .float-right {
-      float: right;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    
-
-  </header>
-<div class="shopping-cart">
-  <div class="item">
-    <div style="text-align: center; padding: 10px">
-
-<div style="border: 1px solid black; padding: 5px;      width: 30%;
-">
-
-    <img src="https://www.lulus.com/images/product/xlarge/4187950_846442.jpg?w=195&hdpi=1">
+  <div style="border:3px solid #ccc;padding:10px;width:33%;">
+    <img src="https://www.lulus.com/images/product/xlarge/4187950_846442.jpg?w=195&hdpi=1" alt="Dress 2">
+    <div class="center">
       <h3>Women's Green Shirt</h3>
-	<h2>Size</h2>
-	    <style>
-      .size-box {
-        display: inline-block;
-        padding: 5px;
-        border: 1px solid black;
-        margin-right: 10px;
-        cursor: pointer;
-      }
 
-      .size-box:hover {
-        background-color: gray;
-      }
-
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 5vh;
-      }
-    </style>
-  
-    <div class="center">
-      <div class="size-box">S</div>
-      <div class="size-box">M</div>
-      <div class="size-box">L</div>
-      <div class="size-box">XL</div>
-      <div class="size-box">XXL</div>
+      <label for="size2">Size:</label>
+      <select id="size2">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+      </select>
     </div>
- 
-	
-	<h4>Quantity</h4>
-
-	<style>
-	.counter {
-		display: inline-block;
-		border: 1px solid #ccc;
-		padding: 5px;
-		font-size: 16px;
-	}
-	button {
-		padding: 5px;
-		font-size: 16px;
-		cursor: pointer;
-	}
-	</style>
-	<div class="counter">
-		<button id="minus">-</button>
-		<span id="count">0</span>
-		<button id="plus">+</button>
-	</div>
-
-	<script>
-	// JavaScript code to add interactivity to the counter
-	//const countEl = document.getElementById("count");
-	//const minusBtn = document.getElementById("minus");
-	//const plusBtn = document.getElementById("plus");
-	//let count = 0;
-
-	minusBtn.addEventListener("click", () => {
-		if (count > 0) {
-			count--;
-			countEl.textContent = count;
-		}
-	});
-
-	plusBtn.addEventListener("click", () => {
-		count++;
-		countEl.textContent = count;
-	});
-	</script>
-
-      <p>Amount: $20</p>
-      <div style="text-align: center; padding: 5px">
+    <div class="center">
+      <label for="quantity2">Quantity:</label>
+      <select id="quantity2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+    <div class="center">
+     <p>Amount: $20</p>
       <input class="btn" type="submit" value="Buy" />
     </div>
   </div>
-  
-</div>
-   
-</div>
-
-
-<style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    h1 {
-	      font-size: 2em;
-
-      margin: 0;
-      padding: 1em;
-      background-color: #333;
-      color: #fff;
-    }
-    input[type="text"], input[type="email"], input[type="tel"], select {
-      width: 40%;
-      padding: 0.5em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.5em 1em;
-      background-color: #333;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .btn:hover {
-      background-color: #444;
-    }
-    .float-right {
-      float: right;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    
-
-  </header>
-<div class="shopping-cart">
-  <div class="item">
-    <div style="text-align: center; padding: 10px">
-
-<div style="border: 1px solid black; padding: 5px;      width: 30%;
-">
-
-    <img src="https://www.lulus.com/images/product/xlarge/4188590_846422.jpg?w=195&hdpi=1">
+  <div style="border:3px solid #ccc;padding:10px;width:33%;">
+    <img src="https://www.lulus.com/images/product/xlarge/4188590_846422.jpg?w=195&hdpi=1" alt="Dress 3">
+    <div class="center">
       <h3>Women's White Top</h3>
-	<h2>Size</h2>
-	    <style>
-      .size-box {
-        display: inline-block;
-        padding: 5px;
-        border: 1px solid black;
-        margin-right: 10px;
-        cursor: pointer;
-      }
 
-      .size-box:hover {
-        background-color: gray;
-      }
-
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 5vh;
-      }
-    </style>
-  
-    <div class="center">
-      <div class="size-box">S</div>
-      <div class="size-box">M</div>
-      <div class="size-box">L</div>
-      <div class="size-box">XL</div>
-      <div class="size-box">XXL</div>
+      <label for="size3">Size:</label>
+      <select id="size3">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+      </select>
     </div>
- 
-	
-	<h4>Quantity</h4>
-
-	<style>
-	.counter {
-		display: inline-block;
-		border: 1px solid #ccc;
-		padding: 5px;
-		font-size: 16px;
-	}
-	button {
-		padding: 5px;
-		font-size: 16px;
-		cursor: pointer;
-	}
-	</style>
-	<div class="counter">
-		<button id="minus">-</button>
-		<span id="count">0</span>
-		<button id="plus">+</button>
-	</div>
-
-	<script>
-	// JavaScript code to add interactivity to the counter
-	const countEl = document.getElementById("count");
-	const minusBtn = document.getElementById("minus");
-	const plusBtn = document.getElementById("plus");
-	let count = 0;
-
-	minusBtn.addEventListener("click", () => {
-		if (count > 0) {
-			count--;
-			countEl.textContent = count;
-		}
-	});
-
-	plusBtn.addEventListener("click", () => {
-		count++;
-		countEl.textContent = count;
-	});
-	</script>
-
+    <div class="center">
+      <label for="quantity3">Quantity:</label>
+      <select id="quantity3">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+    <div class="center">
       <p>Amount: $20</p>
-      <div style="text-align: center; padding: 5px">
       <input class="btn" type="submit" value="Buy" />
     </div>
   </div>
-  
-</div>
-   
 </div>
 <script type="text/javascript" src="./js/index.js"></script>
 </body>
