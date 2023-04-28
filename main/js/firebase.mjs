@@ -1,8 +1,17 @@
 // Import the functions needed from the browser SDKs
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-//import {initializeAppCheck, ReCaptchaV3Provider} from "firebase/app-check";
+import { initializeApp } from 'firebase/app'
+//import {
+  //getFirestore, collection, onSnapshot,
+  //addDoc, deleteDoc, doc, query, where,
+  //orderBy, getDoc, updateDoc
+//} from 'firebase/firestore'
+import { 
+  getAuth,createUserWithEmailAndPassword, 
+  //onAuthStateChanged, signInWithEmailAndPassword,
+  //isSignInWithEmailLink, sendSignInLinkToEmail,
+  //signOut 
+} from 'firebase/auth'
+//import {initializeAppCheck, ReCaptchaV3Provider} from 'firebase/app-check';
  
 //Configuration
 const firebaseConfig = {
@@ -37,31 +46,16 @@ if (process.browser){
 //Authorization Object
 const auth = getAuth(app);
 //Register User Function
-var form = document.getElementById("registFormID");
-function registerUser (){
-  var email = document.getElementById("registerEmailID");
-  var password = document.getElementById("registerPasswordID");
-  createUserWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    alert("user created!!");
-    console.log("User created!");
-    if(userCredential.user){
-      location.href = 'index.html';
-    }
-    else{
-      alert("Something went wrong...");
-    }
-  })
-.catch((error) => {
-  const errorCode = error.code;
-  console.log(errorCode);
-  const errorMessage = error.message;
-  console.log(errorMessage);
-});
-}
-export{ initializeApp, 
-        getAuth, createUserWithEmailAndPassword, 
-        //initializeAppCheck, ReCaptchaV3Provider,
-        registerUser
-}
-form.addEventListener("submit", registerUser)
+var registerForm = document.getElementById("registFormID");
+var email = document.getElementById("registerEmailID");
+var password = document.getElementById("registerPasswordID");
+registerForm.addEventListener("submit", ()=>
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(auth => console.log(auth))
+    .catch((error) => {
+      const errorCode = error.code;
+      console.log(errorCode);
+      const errorMessage = error.message;
+      console.log(errorMessage);
+    })
+)
