@@ -48,7 +48,9 @@ const auth = getAuth();
 //Register User Function
 var registerForm = document.getElementById("registFormID");
 var email = document.getElementById("registerEmailID").value;
+console.log(email);
 var password = document.getElementById("registerPasswordID").value;
+console.log(password);
 registerForm.addEventListener("submit", ()=>
   createUserWithEmailAndPassword(auth, email, password)
     .then(auth => console.log(auth))
