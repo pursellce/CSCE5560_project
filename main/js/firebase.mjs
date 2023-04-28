@@ -38,11 +38,10 @@ if (process.browser){
 const auth = getAuth(app);
 //Register User Function
 var form = document.getElementById("registFormID");
-form.addEventListener("submit", registerUser)
 function registerUser (){
   var email = document.getElementById("registerEmailID");
   var password = document.getElementById("registerPasswordID");
-  createUserWithEmailAndPassword(email, password)
+  createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     alert("user created!!");
     console.log("User created!");
@@ -65,3 +64,4 @@ export{ initializeApp,
         //initializeAppCheck, ReCaptchaV3Provider,
         registerUser
 }
+form.addEventListener("submit", registerUser)
