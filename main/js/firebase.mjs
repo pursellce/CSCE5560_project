@@ -41,7 +41,7 @@ var form = document.getElementById("registFormID");
 function registerUser (){
   var email = document.getElementById("registerEmailID");
   var password = document.getElementById("registerPasswordID");
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
     alert("user created!!");
     console.log("User created!");
