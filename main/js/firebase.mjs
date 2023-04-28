@@ -44,7 +44,7 @@ if (process.browser){
 */
 
 //Authorization Object
-const auth = getAuth(app);
+const auth = getAuth();
 //Register User Function
 var registerForm = document.getElementById("registFormID");
 var email = document.getElementById("registerEmailID");
