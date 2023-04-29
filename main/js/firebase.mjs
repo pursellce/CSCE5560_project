@@ -6,7 +6,9 @@ import { initializeApp } from 'firebase/app'
   //orderBy, getDoc, updateDoc
 //} from 'firebase/firestore'
 import { 
-  getAuth,createUserWithEmailAndPassword, 
+  getAuth,createUserWithEmailAndPassword,
+  PhoneAuthProvider, PhoneMultiFactorGenerator,
+  multiFactor, RecaptchaVerifier,  
   //onAuthStateChanged, signInWithEmailAndPassword,
   //isSignInWithEmailLink, sendSignInLinkToEmail,
   //signOut 
@@ -27,33 +29,36 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-/*
-//reCAPTCHA stuff
-  // Pass your reCAPTCHA v3 site key (public key) to activate(). This
-  // key is the counterpart to the secret key set in the Firebase console.
-  const appCheck = initializeAppCheck(app, {
-    provider: new ReCaptchaV3Provider('6Lfnab4lAAAAANl-9F4OHi0d9nxezFM4EqLzFuR4'),
-    // Optional argument. If true, the SDK automatically refreshes App Check
-    // tokens as needed.
-    isTokenAutoRefreshEnabled: true
-  });
-alternative if statement for testing
-if (process.browser){
-  const appCheckKey = "CDD5A472-7BA1-494D-86BB-2117BD651C96";
-}
-*/
+const auth = getAuth();
+const recaptchaVerifier = new RecaptchaVerifier ('recaptcha-container-id', undefined, auth);
 
 //Authorization Object
-const auth = getAuth();
 //Register User Function
 var registerForm = document.getElementById("registFormID");
 registerForm.addEventListener("submit", ()=> {
   var email = document.getElementById("registerEmailID").value;
-  var password = document.getElementById("registerPasswordID").value;  
-  console.log(email);
-  console.log(password);
+  var password = document.getElementById("registerPasswordID").value;
+  var phone = document.getElementById("registerPhoneID").value;
   createUserWithEmailAndPassword(auth, email, password)
-    .then(auth => console.log(auth))
+    .then((userCredential) => {
+      //signed in
+      const user = userCredential.user;
+      multiFactor(user).getSession()
+        .then(function (multiFactorSession){
+          const phoneInfoOptions ={
+            phoneNumber : phone,
+            session : multiFactorSession
+          };
+          const phoneAuthProvider = new PhoneAuthProvider(auth);
+        })
+    }
+        
+
+
+
+
+
+    )
     .catch((error) => {
       const errorCode = error.code;
       console.log(errorCode);
@@ -62,3 +67,6 @@ registerForm.addEventListener("submit", ()=> {
     })
   }
 )
+
+
+var regSubmit =document.getElementById("registerSubmit");  
