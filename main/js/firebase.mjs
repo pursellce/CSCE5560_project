@@ -30,11 +30,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-const recaptchaVerifier = new RecaptchaVerifier ('recaptcha-container-id', undefined, auth);
+
 
 //Authorization Object
 //Register User Function
 var registerForm = document.getElementById("registFormID");
+var submitButton = document.getElementById("registerSubmit")
+const recaptchaVerifier = new RecaptchaVerifier (submitButton, undefined, auth);
 registerForm.addEventListener("submit", ()=> {
   var email = document.getElementById("registerEmailID").value;
   var password = document.getElementById("registerPasswordID").value;
