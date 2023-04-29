@@ -41,45 +41,33 @@ registerForm.addEventListener("submit", ()=> {
   var email = document.getElementById("registerEmailID").value;
   var password = document.getElementById("registerPasswordID").value;
   var phone = document.getElementById("registerPhoneID").value;
+  //var verificationCode = document.getElementById("verificationCodeID").value;
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       //signed in
       const user = userCredential.user;
       multiFactor(user).getSession()
-        .then(function (multiFactorSession){
-          const phoneInfoOptions ={
-            phoneNumber : phone,
-            session : multiFactorSession
-          };
-          const phoneAuthProvider = new PhoneAuthProvider(auth);
-
-          // Send SMS Verification Code
-          return phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, recaptchaVerifier);
-        }).then(function(verificationID){
-          // User is Prompted for Verification Code
-          const cred = PhoneAuthProvider.credential(verificationID, verificationCode);
-          const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(cred);
-
-          // Complete Enrollment
-          return multiFactor(user).enroll(multiFactorAssertion, mfaDisplayName);
-        });
-
-    }
-        
-
-
-
-
-
-    )
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode);
-      const errorMessage = error.message;
-      console.log(errorMessage);
+      .then(function (multiFactorSession){
+        const phoneInfoOptions ={
+          phoneNumber : phone,
+          session : multiFactorSession
+        };
+        const phoneAuthProvider = new PhoneAuthProvider(auth);
+        // Send SMS Verification Code
+        return phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, recaptchaVerifier);
+      })
+      .then(function(verificationID){
+      // User is Prompted for Verification Code
+      const cred = PhoneAuthProvider.credential(verificationID, verificationCode);
+      const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(cred);
+      // Complete Enrollment
+      return multiFactor(user).enroll(multiFactorAssertion, mfaDisplayName);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      })
     })
-  }
-)
-
-
-var regSubmit =document.getElementById("registerSubmit");  
+  })
