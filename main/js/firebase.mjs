@@ -50,7 +50,18 @@ registerForm.addEventListener("submit", ()=> {
             session : multiFactorSession
           };
           const phoneAuthProvider = new PhoneAuthProvider(auth);
-        })
+
+          // Send SMS Verification Code
+          return phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, recaptchaVerifier);
+        }).then(function(verificationID){
+          // User is Prompted for Verification Code
+          const cred = PhoneAuthProvider.credential(verificationID, verificationCode);
+          const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(cred);
+
+          // Complete Enrollment
+          return multiFactor(user).enroll(multiFactorAssertion, mfaDisplayName);
+        });
+
     }
         
 
