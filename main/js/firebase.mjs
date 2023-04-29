@@ -8,8 +8,8 @@ import { initializeApp } from 'firebase/app'
 import { 
   getAuth,createUserWithEmailAndPassword,
   PhoneAuthProvider, PhoneMultiFactorGenerator,
-  multiFactor, RecaptchaVerifier,  
-  //onAuthStateChanged, signInWithEmailAndPassword,
+  multiFactor, RecaptchaVerifier, sendEmailVerification, 
+  onAuthStateChanged, signInWithEmailAndPassword,
   //isSignInWithEmailLink, sendSignInLinkToEmail,
   //signOut 
 } from 'firebase/auth'
@@ -33,41 +33,46 @@ const auth = getAuth();
 
 
 //Authorization Object
-//Register User Function
+//Register User (Password and Email) Function
 var registerForm = document.getElementById("registFormID");
-var submitButton = document.getElementById("registerSubmit")
-const recaptchaVerifier = new RecaptchaVerifier (submitButton, undefined, auth);
 registerForm.addEventListener("submit", ()=> {
   var email = document.getElementById("registerEmailID").value;
   var password = document.getElementById("registerPasswordID").value;
-  var phone = document.getElementById("registerPhoneID").value;
   //var verificationCode = document.getElementById("verificationCodeID").value;
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      //signed in
-      const user = userCredential.user;
-      multiFactor(user).getSession()
-      .then(function (multiFactorSession){
-        const phoneInfoOptions ={
-          phoneNumber : phone,
-          session : multiFactorSession
-        };
-        const phoneAuthProvider = new PhoneAuthProvider(auth);
-        // Send SMS Verification Code
-        return phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, recaptchaVerifier);
-      })
-      .then(function(verificationID){
-      // User is Prompted for Verification Code
-      const cred = PhoneAuthProvider.credential(verificationID, verificationCode);
-      const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(cred);
-      // Complete Enrollment
-      return multiFactor(user).enroll(multiFactorAssertion, mfaDisplayName);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        console.log(errorCode);
-        const errorMessage = error.message;
-        console.log(errorMessage);
+      //After acccount is created, verify ownership of email
+      sendEmailVerification(auth.currentUser)
+    }
+  )
+});
+
+
+var mfaFormID = document.getElementById("mfaFormID")
+mfaFormID.addEventListener("submit",()=>{
+  var phone = document.getElementById("registerPhoneID");
+  const recaptchaVerifier = new RecaptchaVerifier (submitButton, undefined, auth);
+  var user = auth.currentUser;
+  multiFactor(user).getSession()
+    .then(function (multiFactorSession){
+      const phoneInfoOptions ={
+        phoneNumber : phone,
+        session : multiFactorSession
+      };
+      const phoneAuthProvider = new PhoneAuthProvider(auth);
+      // Send SMS Verification Code
+      return phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, recaptchaVerifier);
+    })
+    // User is Prompted for Verification Code
+    .then(function(verificationID){
+      var codeForm = document.getElementById("codeFormID");
+      //user submits verifcation code
+      codeForm.addEventListener("submit", ()=>{
+        var verificationCode = document.getElementById("otp").value;
+        const cred = PhoneAuthProvider.credential(verificationID, verificationCode);
+        const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(cred);
+        // Complete Enrollment
+        return multiFactor(user).enroll(multiFactorAssertion, mfaDisplayName);
       })
     })
-  })
+})

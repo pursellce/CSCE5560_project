@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="./css/mfa.css">
+  <script type="module" src="./js/fb.mjs"></script>
   <title>OTP</title>
 </head>
 <body>
@@ -13,10 +14,15 @@
       <h1>Clothing</h1>
 
   </header>
-<form>
-  <br><label for="otp">A code has been sent to your phone.<br>Enter it to login.</label>
-  <input type="text" id="otp" name="otp"><br>
-  <button type="submit">Submit</button>
+<form id="mfaFormID">
+  <label for="registerPhoneID" onsubmit = "return false">Please Enter Your Phone Number</label>
+  <input type="text" name="registerPhone" id="registerPhoneID" pattern ="^\+[1-9]\d{1,14}$" required><br><br>
+  <button type="submit" id="phoneSubmit"> Submit</button><br><br>
+</form>
+<form id="codeFormID">
+  <br><label for="otp">Once you recieve the one time code on your phone<br>Enter it to login.</label>
+  <input type="text" id="otp" name="verificationCode"><br>
+  <button type="submit" id="codeSubmit">Submit</button>
 </form>
 <script type="text/javascript" src="./js/mfa.js"></script>
 </body>
