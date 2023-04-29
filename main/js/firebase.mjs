@@ -48,8 +48,8 @@ registerForm.addEventListener("submit", ()=> {
 });
 
 
-var mfaFormID = document.getElementById("mfaFormID")
-mfaFormID.addEventListener("submit",()=>{
+var mfaForm = document.getElementById("mfaFormID")
+mfaForm.addEventListener("submit",()=>{
   var phone = document.getElementById("registerPhoneID");
   const recaptchaVerifier = new RecaptchaVerifier (submitButton, undefined, auth);
   var user = auth.currentUser;
