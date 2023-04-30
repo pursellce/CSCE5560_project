@@ -26,3 +26,39 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById('signup').style.visibility = 'visible';
   }
 });
+
+/*
+document.getElementById('buy1').onclick = function() {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      //User is logged in and can buy
+    } else {
+      alert("You need to be logged in to purchase this item.")
+    }
+  });
+};
+*/
+
+document.getElementById('buy1').onclick = function() {
+  sessionStorage.setItem("name", "Women's Pleated Deepneck Top");
+  sessionStorage.setItem("item", 1);
+  sessionStorage.setItem("size", document.getElementById('size1').value);
+  sessionStorage.setItem("quantity", document.getElementById('quantity1').value);
+  window.location.href = "Payment.html";
+};
+
+document.getElementById('buy2').onclick = function() {
+  sessionStorage.setItem("name", "Women's Green Shirt");
+  sessionStorage.setItem("item", 2);
+  sessionStorage.setItem("size", document.getElementById('size2').value);
+  sessionStorage.setItem("quantity", document.getElementById('quantity2').value);
+  window.location.href = "Payment.html";
+};
+
+document.getElementById('buy3').onclick = function() {
+  sessionStorage.setItem("name", "Women's White Top");
+  sessionStorage.setItem("item", 3);
+  sessionStorage.setItem("size", document.getElementById('size3').value);
+  sessionStorage.setItem("quantity", document.getElementById('quantity3').value);
+  window.location.href = "Payment.html";
+};
