@@ -54,3 +54,14 @@ var totalCost = quantity * 20;
 const price = document.createElement("p");
 price.innerHTML = "Total: $" + totalCost;
 document.getElementById('totalPrice').appendChild(price);
+
+document.getElementById('buy').onclick = function() {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      //User is logged in and can buy
+    } else {
+      alert("You need to be logged in to purchase this item.")
+    }
+  });
+};
+
