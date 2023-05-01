@@ -51,7 +51,7 @@ loginForm.addEventListener("submit", ()=> {
 
         //hide email and password input boxes/submit button, display mfa input box/submit button
         document.getElementById("emailPassInfoID").style.display = 'none';
-        document.getElementById("mfaID").style.diplay = 'block';
+        document.getElementById("mfaID").style.display = 'block';
 
         //begin mfa login steps
         const resolver = getMultiFactorResolver(auth, error);
