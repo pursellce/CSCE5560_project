@@ -21,11 +21,11 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     document.getElementById('login').style.visibility = 'hidden';
     document.getElementById('signup').style.visibility = 'hidden';
-    document.getElementById('logout').style.visibilty = 'visible';
+    document.getElementById('logout').style.display = 'block';
   } else {
     document.getElementById('login').style.visibility = 'visible';
     document.getElementById('signup').style.visibility = 'visible';
-    document.getElementById('logout').style.visibilty = 'hidden';
+    document.getElementById('logout').style.display = 'none';
   }
 });
 
@@ -40,9 +40,11 @@ document.getElementById('buy1').onclick = function() {
 };
 */
 //Signout Function
-document.getElementById('signout').onclick = function(){
+document.getElementById('logout').onclick = function(){
+  console.log("Sign out.")
   signOut(auth);
 }
+
 
 document.getElementById('buy1').onclick = function() {
   sessionStorage.setItem("name", "Women's Pleated Deepneck Top");

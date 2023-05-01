@@ -27,11 +27,18 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     document.getElementById('login').style.visibility = 'hidden';
     document.getElementById('signup').style.visibility = 'hidden';
+    document.getElementById('logout').style.display = 'block';
   } else {
     document.getElementById('login').style.visibility = 'visible';
     document.getElementById('signup').style.visibility = 'visible';
+    document.getElementById('logout').style.display = 'none';
   }
 });
+
+document.getElementById('logout').onclick = function(){
+  console.log("Sign out.")
+  signOut(auth);
+}
 
 //LOGIN Function
 document.getElementById("mfaID").style.display='none';
