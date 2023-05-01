@@ -1,5 +1,13 @@
 {
   "projects": {
     "default": "csce5560-project"
+  },
+  "targets": {},
+  "etags": {
+    "csce5560-project": {
+      "extensionInstances": {
+        "firestore-stripe-payments": "9968d0f2d72ff85acfbe360ee048f4d3cdd53e2531e17e6272c58fb7099263ac"
+      }
+    }
   }
 }

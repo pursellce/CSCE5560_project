@@ -55,20 +55,24 @@ loginForm.addEventListener("submit", ()=> {
 
         //begin mfa login steps
         const resolver = getMultiFactorResolver(auth, error);
-        if(resolver.hints[selectedIndex].factorId === PhoneMultiFactorGenerator.FACTOR_ID){
+        if(resolver.hints.find((hint) => hint.factorId === PhoneMultiFactorGenerator.FACTOR_ID)){
+          console.log("FactorID Check.");
           const phoneInfoOptions ={
-            multiFactorHint: resolver.hints[selectedIndex],
+            multiFactorHint: resolver.hints.find((hint) => hint.factorId),
             session: resolver.session
           };
+          console.log("Start Recaptcha");
           //send SMS code
           const recaptchaVerifier = new RecaptchaVerifier(document.getElementById("recaptcha-container"), {
             size: 'invisible',
             callback: () =>{
             //send SMS verification code
+            console.log("Send Message.");
               const phoneAuthProvider = new PhoneAuthProvider(auth);
               phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, recaptchaVerifier)
                 .then(function(verificationId){
                     //get SMS Verifcation Code from user
+                    console.log("Message Sent.");
                   document.getElementById("mfaCodeSubmit").onclick = function(){
                     var verificationCode = document.getElementById("otpID").value;
                     const cred = PhoneAuthProvider.credential(
@@ -90,6 +94,8 @@ loginForm.addEventListener("submit", ()=> {
               },
             },
           auth);
+          // Execute reCAPTCHA verification
+          recaptchaVerifier.verify();
         }
       else if(error.code == 'auth/wrong-password'){
         loginForm.reset();
