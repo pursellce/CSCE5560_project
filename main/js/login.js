@@ -24,15 +24,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 //Monitor if user is logged in and toggle visibility of login and signup buttons accordingly
 onAuthStateChanged(auth, (user) => {
-    if (user) {
-      document.getElementById('login').style.visibility = 'hidden';
-      document.getElementById('signup').style.visibility = 'hidden';
-    } else {
-      document.getElementById('login').style.visibility = 'visible';
-      document.getElementById('signup').style.visibility = 'visible';
-    }
-  });
-
+  if (user) {
+    document.getElementById('login').style.visibility = 'hidden';
+    document.getElementById('signup').style.visibility = 'hidden';
+  } else {
+    document.getElementById('login').style.visibility = 'visible';
+    document.getElementById('signup').style.visibility = 'visible';
+  }
+});
 
 //LOGIN Function
 var loginForm = document.getElementById("loginFormID");

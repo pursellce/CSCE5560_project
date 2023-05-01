@@ -14,7 +14,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 const auth = getAuth(app);
 
@@ -22,11 +22,17 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     document.getElementById('login').style.visibility = 'hidden';
     document.getElementById('signup').style.visibility = 'hidden';
+    document.getElementById('signout').style.visibilty = 'visible';
   } else {
     document.getElementById('login').style.visibility = 'visible';
     document.getElementById('signup').style.visibility = 'visible';
+    document.getElementById('signout').style.visibilty = 'hidden';
   }
 });
+
+document.getElementById('signout').onclick = function(){
+  signOut(auth);
+}
 
 var name = sessionStorage.getItem("name");
 var size = sessionStorage.getItem("size");
