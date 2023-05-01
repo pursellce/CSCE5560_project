@@ -10,7 +10,7 @@ const firebaseConfig = {
     appId: "1:53120338249:web:4839a3e417b0345ad6f298",
     measurementId: "G-8JE4QWELZJ"
   };
-import { getAuth, applyActionCode  } from 'firebase/auth'
+import { getAuth, applyActionCode, onAuthStateChanged  } from 'firebase/auth'
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
