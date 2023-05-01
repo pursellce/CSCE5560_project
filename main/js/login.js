@@ -46,10 +46,11 @@ loginForm.addEventListener("submit", ()=> {
       //hide email and password input boxes, display mfa input box
         var emailPassInfo = document.getElementById("emailPassInfoID");
         var mfa = document.getElementById("mfaID");
-        emailPassInfo.style.display = 'none';
-        mfa.style.diplay ='block';
+        emailPassInfo.style.display = "none";
+        mfa.style.diplay = "block";
         //begin mfa login steps
         const resolver = getMultiFactorResolver(auth, error);
+        console.log(selectedIndex);
         const phoneInfoOptions ={
           multiFactorHint: resolver.hints[selectedIndex],
           session: resolver.session
