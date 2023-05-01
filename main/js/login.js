@@ -34,6 +34,8 @@ onAuthStateChanged(auth, (user) => {
 });
 
 //LOGIN Function
+document.getElementById("mfaID").style.display='none';
+
 var loginForm = document.getElementById("loginFormID");
 //User enters email and password and hits submit button
 loginForm.addEventListener("submit", ()=> {
@@ -48,10 +50,8 @@ loginForm.addEventListener("submit", ()=> {
         //instruct to create new account with phone
 
         //hide email and password input boxes/submit button, display mfa input box/submit button
-        var emailPassInfo = document.getElementById("emailPassInfoID");
-        emailPassInfo.style.display = "none";
-        var mfa = document.getElementById("mfaID");
-        mfa.style.diplay = "inline-block";
+        document.getElementById("emailPassInfoID").style.display = 'none';
+        document.getElementById("mfaID").style.diplay = 'block';
 
         //begin mfa login steps
         const resolver = getMultiFactorResolver(auth, error);
@@ -72,7 +72,7 @@ loginForm.addEventListener("submit", ()=> {
               phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, recaptchaVerifier)
                 .then(function(verificationId){
                     //get SMS Verifcation Code from user
-                    console.log("Message Sent.");
+                  console.log("Message Sent.");
                   document.getElementById("mfaCodeSubmit").onclick = function(){
                     var verificationCode = document.getElementById("otpID").value;
                     const cred = PhoneAuthProvider.credential(

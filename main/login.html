@@ -33,17 +33,20 @@
     </div>
   </form>
 </div>
+
+<div id="mfaID" class = container>
 <!--MFA Code Form-->
-<div id="mfaID" style="text-align: center; padding: 10px; display: none;">
-  <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
-    <form id="mfaCodeFormID" onsubmit = "return false;">
-      <br><label for="otp">Once you recieve the one time code on your phone<br>Enter it to login.</label>
-      <input type="text" id="otpID" name="verificationCode"><br>
-      <div style="text-align: center; padding: 10px">
-        <div id="recaptcha-container"></div>
-        <button class="btn" type="button" id="mfaCodeSubmit">Submit</button>
-      </div>
-    </form>
+  <div style="text-align: center; padding: 10px; display: inline-block;">
+    <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+      <form id="mfaCodeFormID" onsubmit = "return false;">
+        <br><label for="otp">Once you recieve the one time code on your phone<br>Enter it to login.</label>
+        <input type="text" id="otpID" name="verificationCode"><br>
+        <div style="text-align: center; padding: 10px">
+          <div id="recaptcha-container"></div>
+          <button class="btn" type="button" id="mfaCodeSubmit">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 </body>
