@@ -4,24 +4,24 @@
   <link rel="stylesheet" href="./css/signup.css">
   <title>Sign Up</title>
   <script type="module" src="./js/signup.mjs"></script>
-  <script type="module" src="./js/fb.mjs"></script>
 </head>
 <body>
   
   <header>
     <div class="container">
-      <a href="login.html" class="btn float-right">Login</a>
-      <a href="SignUp.html" class="btn float-right">Sign Up</a>
+      <a id= login href="login.html" class="btn float-right">Login</a>
+      <a id = signup href="SignUp.html" class="btn float-right">Sign Up</a>
     </div>
       <h1>Clothing</h1>
 
   </header>
 <!--Register Form-->
 <div class="container">
-  <form name = "registerForm" id= "registFormID" onsubmit= "return false;">
-    <div style="text-align: center">
+
+    <div style="text-align: center" id="signupInfo">
     <h2>Sign Up</h2>
     <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+      <form name = "registerForm" id= "registFormID" onsubmit= "return false;">
       <label for="registerEmailID">Email</label>
       <input type="text"  name="registerEmail" id="registerEmailID" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required><br><br>
       
@@ -54,9 +54,33 @@
       <div style="text-align: center; padding: 10px">
         <input class="btn" id="registerSubmit" type="submit" value="Submit"/>
       </div>
-      </div>
+    </div>
     </div>
   </form>
+</div>
+
+<div style="text-align: center; padding: 10px; display: none" id="verifyEmail">
+  <div style="display: inline-block; text-align: center; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+    <h2>We've sent an email to verify your email address.</h2>
+    <h2>Please verify before continuing.</h2>
+    <div id="check"></div>
+    <button class="btn" type="button" id="verifiedBtn">Continue</button>
+  </div>
+</div>
+
+
+<div id="mfa" style="text-align: center; padding: 10px; display: none;">
+  <h2>Multi-factor Authentication Setup</h2>
+  <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+    <form id="codeFormID">
+      <br><label for="otp">Once you recieve the one time code on your phone<br>Enter it to login.</label>
+      <input type="text" id="otp" name="verificationCode"><br>
+      <div style="text-align: center; padding: 10px">
+        <div id="recaptcha-container"></div>
+        <button class="btn" type="button" id="codeSubmit">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 </body>

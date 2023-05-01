@@ -16,7 +16,17 @@ const app = initializeApp(firebaseConfig);
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-const auth = getAuth();
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.getElementById('login').style.visibility = 'hidden';
+    document.getElementById('signup').style.visibility = 'hidden';
+  } else {
+    document.getElementById('login').style.visibility = 'visible';
+    document.getElementById('signup').style.visibility = 'visible';
+  }
+});
 
 var name = sessionStorage.getItem("name");
 var size = sessionStorage.getItem("size");

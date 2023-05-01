@@ -84,3 +84,126 @@
     }
   }
 
+// Import the functions needed from the browser SDKs
+import { initializeApp } from 'firebase/app'
+
+import { getAuth, createUserWithEmailAndPassword, PhoneAuthProvider, PhoneMultiFactorGenerator, multiFactor, RecaptchaVerifier, sendEmailVerification, onAuthStateChanged } from 'firebase/auth'
+ 
+//Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBrgPio0COrd8AiMDiBb7sWsUx_Xl7Eip0",
+    authDomain: "csce5560-project.firebaseapp.com",
+    databaseURL: "https://csce5560-project-default-rtdb.firebaseio.com",
+    projectId: "csce5560-project",
+    storageBucket: "csce5560-project.appspot.com",
+    messagingSenderId: "53120338249",
+    appId: "1:53120338249:web:4839a3e417b0345ad6f298",
+    measurementId: "G-8JE4QWELZJ"
+  };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+var clicked = false;
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.getElementById('login').style.visibility = 'hidden';
+    document.getElementById('signup').style.visibility = 'hidden';
+  } else {
+    document.getElementById('login').style.visibility = 'visible';
+    document.getElementById('signup').style.visibility = 'visible';
+  }
+});
+
+
+//Authorization Object
+//Register User (Password and Email) Function
+var phoneNumber;
+var registerForm = document.getElementById("registFormID");
+registerForm.addEventListener("submit", ()=> {
+  var email = document.getElementById("registerEmailID").value;
+  var password = document.getElementById("registerPasswordID").value;
+  phoneNumber = document.getElementById("registerPhoneID").value;
+
+  //var verificationCode = document.getElementById("verificationCodeID").value;
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      //After acccount is created, verify ownership of email
+      sendEmailVerification(auth.currentUser)
+      console.log("Verification Email Sent.");
+      registerForm.reset()
+      var signupInfo = document.getElementById('signupInfo');
+      signupInfo.style.display = 'none';
+
+      var verifyEmail = document.getElementById('verifyEmail');
+      verifyEmail.style.display = 'block';
+      console.log(userCredential);
+    }
+  )
+});
+
+document.getElementById('verifiedBtn').onclick = function() {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      user.reload()
+        .then(() => {
+          if (user.emailVerified) {
+            // The user's email has been verified
+            console.log("Email verified.")
+            verifyEmail.style.display = 'none';
+            mfa.style.display = "block";
+
+                // Initialize reCAPTCHA
+                const recaptchaVerifier = new RecaptchaVerifier(document.getElementById('recaptcha-container'), {
+                  size: 'invisible',
+                  callback: () => {
+                    // Send SMS verification code
+                    const phoneAuthProvider = new PhoneAuthProvider(auth);
+                    phoneAuthProvider.verifyPhoneNumber(phoneNumber, recaptchaVerifier).then((verificationId) => {
+                        console.log('Verification code sent to', phoneNumber);
+
+
+                        document.getElementById('codeSubmit').onclick = function() {
+                        var verificationCode = document.getElementById("otp").value;
+                        const cred = PhoneAuthProvider.credential(verificationId, verificationCode);
+                        const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(cred);
+                        // Complete Enrollment
+                        console.log("Completing MFA Setup")
+                        return multiFactor(user).enroll(multiFactorAssertion, "Phone")
+                        .then(() => {
+                          console.log("MFA Setup for user. Redirting to home page.")
+                          window.location.href = "index.html";
+                        })
+                        .catch((error) => {
+                          console.error('Error setting up MFA', error);
+                        });
+                        }
+                      })
+                      .catch((error) => {
+                        console.error('Error sending verification code', error);
+                      });
+                      
+                  },
+                }, auth);
+                // Execute reCAPTCHA verification
+                recaptchaVerifier.verify();
+          } else {
+            // The user's email has been verified. Try Again.
+            if (!clicked) {
+              clicked = true;
+              const h2Check = document.createElement("h2");
+              h2Check.innerHTML = "Email has not been verified yet. Try Again.";
+              document.getElementById('check').appendChild(h2Check);
+            }
+
+          }
+        })
+    }
+  });
+};
+
+
+
+

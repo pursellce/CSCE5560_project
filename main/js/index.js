@@ -27,6 +27,17 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+/*
+document.getElementById('buy1').onclick = function() {
+  onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // Insert Stripe payment stuff here
+    } else {
+      alert("You need to be logged in to purchase this item.")
+  }
+};
+*/
+
 document.getElementById('buy1').onclick = function() {
   sessionStorage.setItem("name", "Women's Pleated Deepneck Top");
   sessionStorage.setItem("item", 1);
