@@ -14,23 +14,38 @@
       <h1>Clothing</h1>
 
   </header>
-<form>
-  <div style="text-align: center">
-  <h2>Login</h2>
-  <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" required><br><br>
-  
-
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <hr style="border: 1px solid #d1d1d1">
-    <div style="text-align: center; padding: 10px">
-      <input class="btn" type="submit" value="Submit" />
+<div id ="emailPassInfoID" class="container">
+<!--Email and Password Form-->
+  <form id="loginFormID" name="loginForm" onsubmit="return false;">
+    <div style="text-align: center">
+      <h2>Login</h2>
+      <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+        <label for="loginEmail">Email</label>
+        <input type="text" id="loginEmailID" name="email" required><br><br>
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPasswordID" name="password" required><br><br>
+        <label for="TogglePasswordVisibility">Show Password: <input type="checkbox" id="TogglePasswordVisibility"/></label>
+        <hr style="border: 1px solid #d1d1d1">
+        <div style="text-align: center; padding: 10px">
+        <input class="btn" id="emailPassSubmit" type="submit" value="Submit" />
+        </div>
+      </div>
     </div>
+  </form>
+</div>
+<!--MFA Code Form-->
+<div id="mfaID" style="text-align: center; padding: 10px; display: none;">
+  <div style="display: inline-block; text-align: left; border: 3px solid #d1d1d1; padding: 20px; border-radius: 10px;">
+    <form id="mfaCodeFormID" onsubmit = "return false;">
+      <br><label for="otp">Once you recieve the one time code on your phone<br>Enter it to login.</label>
+      <input type="text" id="otpID" name="verificationCode"><br>
+      <div style="text-align: center; padding: 10px">
+        <div id="recaptcha-container"></div>
+        <button class="btn" type="button" id="mfaCodeSubmit">Submit</button>
+      </div>
+    </form>
   </div>
 </div>
-</form>
 </body>
 
 

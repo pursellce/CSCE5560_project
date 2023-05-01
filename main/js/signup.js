@@ -87,7 +87,12 @@
 // Import the functions needed from the browser SDKs
 import { initializeApp } from 'firebase/app'
 
-import { getAuth, createUserWithEmailAndPassword, PhoneAuthProvider, PhoneMultiFactorGenerator, multiFactor, RecaptchaVerifier, sendEmailVerification, onAuthStateChanged } from 'firebase/auth'
+import { 
+  getAuth, createUserWithEmailAndPassword, 
+  PhoneAuthProvider, PhoneMultiFactorGenerator, 
+  multiFactor, RecaptchaVerifier, 
+  sendEmailVerification, onAuthStateChanged 
+} from 'firebase/auth'
  
 //Configuration
 const firebaseConfig = {
@@ -103,10 +108,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+//Authorization Object
 const auth = getAuth(app);
 
 var clicked = false;
 
+//Monitor if user is logged in and toggle visibility of login and signup buttons accordingly
 onAuthStateChanged(auth, (user) => {
   if (user) {
     document.getElementById('login').style.visibility = 'hidden';
@@ -117,8 +124,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-
-//Authorization Object
 //Register User (Password and Email) Function
 var phoneNumber;
 var registerForm = document.getElementById("registFormID");
@@ -127,7 +132,6 @@ registerForm.addEventListener("submit", ()=> {
   var password = document.getElementById("registerPasswordID").value;
   phoneNumber = document.getElementById("registerPhoneID").value;
 
-  //var verificationCode = document.getElementById("verificationCodeID").value;
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       //After acccount is created, verify ownership of email
