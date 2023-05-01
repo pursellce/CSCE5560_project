@@ -151,7 +151,7 @@ document.getElementById('verifiedBtn').onclick = function() {
         .then(() => {
           if (user.emailVerified) {
             // The user's email has been verified
-            console.log("Email verified.")
+            console.log("Email verified.");
             verifyEmail.style.display = 'none';
             mfa.style.display = "block";
 
