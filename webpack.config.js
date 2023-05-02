@@ -6,5 +6,8 @@ module.exports = {
         path: path.resolve(__dirname, 'main/js'),
         filename: '[name].mjs',
     },
-    watch: true
+    watch: true,
+    experiments: {
+        topLevelAwait: true
+      }
 }
