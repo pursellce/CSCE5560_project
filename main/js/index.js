@@ -1,14 +1,14 @@
 import { initializeApp } from 'firebase/app'
 //Configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBrgPio0COrd8AiMDiBb7sWsUx_Xl7Eip0",
-    authDomain: "csce5560-project.firebaseapp.com",
-    databaseURL: "https://csce5560-project-default-rtdb.firebaseio.com",
-    projectId: "csce5560-project",
-    storageBucket: "csce5560-project.appspot.com",
-    messagingSenderId: "53120338249",
-    appId: "1:53120338249:web:4839a3e417b0345ad6f298",
-    measurementId: "G-8JE4QWELZJ"
+    apiKey: "xxxxxxxxxxxxx",
+    authDomain: "xxxxxxxxxxxxx",
+    databaseURL: "xxxxxxxxxxxxx",
+    projectId: "xxxxxxxxxxxxx",
+    storageBucket: "xxxxxxxxxxxxx",
+    messagingSenderId: "xxxxxxxxxxxxx",
+    appId: "xxxxxxxxxxxxx",
+    measurementId: "xxxxxxxxxxxxx"
   };
 
 // Initialize Firebase
@@ -40,7 +40,7 @@ document.getElementById('logout').onclick = function(){
 
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripe =  await loadStripe('pk_test_51MzkXaEJsQttsu4FlxKIENaeeI3rUmOG5zRPisUdQCBK2uRjAHbw0czg7LjfAK7BLSmqIxCslFkfRubVcpklYMEc00VQq9rvYg');
+const stripe =  await loadStripe('xxxxxxxxxxxxx');
 
 let itemPrice;
 let itemQuantity;
